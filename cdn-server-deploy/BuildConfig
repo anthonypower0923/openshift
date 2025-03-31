@@ -13,7 +13,7 @@ spec:
   strategy:
     type: Docker                      
     dockerStrategy:
-      dockerfilePath: Dockerfile    # Look for Dockerfile in: gitUri/contextDir/dockerfilePath
+      dockerfilePath: /cdn-server-deploy/Dockerfile    # Look for Dockerfile in: gitUri/contextDir/dockerfilePath
   output:
     to:
       kind: ImageStreamTag
