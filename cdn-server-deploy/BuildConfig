@@ -1,0 +1,20 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: cdn-server
+  labels:
+    app: cdn-server
+spec:
+  source:
+    type: Git
+    git:
+      uri: https://github.com/anthonypower0923/openshift.git
+    contextDir: cdn-server-deploy
+  strategy:
+    type: Docker                      
+    dockerStrategy:
+      dockerfilePath: Dockerfile    # Look for Dockerfile in: gitUri/contextDir/dockerfilePath
+  output:
+    to:
+      kind: ImageStreamTag
+      name: cdn-server:latest
