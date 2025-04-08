@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cdn-server
+spec:
+  selector:
+    matchLabels:
+      app: cdn-server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cdn-server
+    spec:
+      containers:
+      - name: cdn-server-1
+        image: docker.io/caxtrapi/cdn-server:latest
+      - name: cdn-server-2
+        image: docker.io/caxtrapi/cdn-server:latest
+        # ports:
+        # - containerPort: 8080
